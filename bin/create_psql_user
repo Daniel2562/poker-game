@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+APP_NAME="$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]')"
+USER_NAME="$APP_NAME"_user
+USER_PASS="$APP_NAME"_pass
+psql -c "CREATE USER $USER_NAME WITH PASSWORD '$USER_PASS';"
+psql -c "ALTER USER $USER_NAME CREATEDB;"
+
+rm bin/create_psql_user

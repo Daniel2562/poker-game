@@ -1,0 +1,29 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: poker-game-development
+  username: developer
+  password: 
+
+test:
+  <<: *default
+  database: poker-game-test
+  username: tester
+  password: 
+
+staging:
+  <<: *default
+  database: poker-game
+  username: backend
+  password:
+
+production:
+  <<: *default
+  database: poker-game
+  username: backend
+  password:
